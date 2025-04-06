@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visual Digest & Smart Analytics Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #1f2937; /* Dark background */
+            color: #f8fafc; /* Light text color */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .section {
+            padding: 40px 20px;
+            margin-bottom: 40px;
+            border-radius: 12px;
+            background-color: #2d3748; /* Darker section background */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+        }
+        .feature {
+            margin-bottom: 20px;
+        }
+        .feature h3 {
+            font-size: 1.5em;
+            color: #ffffff; /* White color for feature headings */
+            font-weight: bold; /* Bold text */
+        }
+        .feature p {
+            color: #e2e8f0; /* Light gray text */
+        }
+        .graph-container {
+            width: 100%;
+            height: 400px; /* Adjust height as needed */
+            background-color: #4a5568; /* Placeholder for graph */
+            border-radius: 12px;
+            margin-left: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+        img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container mx-auto max-w-6xl">
+    <!-- Visual Digest Section -->
+    <div class="section flex flex-col md:flex-row">
+        <div class="md:w-2/3">
+            <h2 class="text-3xl font-bold mb-4">🔍 Visual Digest</h2>
+            <p class="mb-6">Transforming Dense Data into Clarity</p>
+            <p class="mb-4">
+                Academic research can be overwhelming. Visual Digest simplifies complex research outputs by transforming them into intuitive, visual formats that are easy to explore and act upon. Our tools support researchers, students, and educators alike in making informed decisions and uncovering insights faster.
+            </p>
+            <h3 class="text-2xl font-bold mb-2">Features:</h3>
+            <div class="feature">
+                <h3>Interactive Graphs & Flowcharts</h3>
+                <p>Break down multi-step processes and relationships between concepts or methods with dynamic visualizations.</p>
+            </div>
+            <div class="feature">
+                <h3>Timelines of Innovation</h3>
+                <p>Track the evolution of technologies or research fields over time.</p>
+            </div>
+            <div class="feature">
+                <h3>Keyword Clouds & Trend Spotting</h3>
+                <p>Identify emerging topics and research hotspots using keyword frequency and semantic clustering.</p>
+            </div>
+            <div class="feature">
+                <h3>Comparison Dashboards</h3>
+                <p>Instantly contrast methodologies, datasets, and conclusions from related papers or projects.</p>
+            </div>
+            <p>Whether you're preparing for a presentation or exploring a new topic, Visual Digest turns data into discovery.</p>
+        </div>
+        <div class="md:w-1/3 graph-container">
+            <!-- Placeholder for Graph/Image -->
+            <img src="./graph.jpg" alt="Graph or Visualization" />
+        </div>
+    </div>
+
+    <!-- Smart Analytics Dashboard Section -->
+    <div class="section flex flex-col md:flex-row">
+        <div class="md:w-2/3">
+            <h2 class="text-3xl font-bold mb-4">📊 Smart Analytics Dashboard</h2>
+            <p class="mb-6">Let Data Guide Your Research Journey</p>
+            <p class="mb-4">
+                In today’s data-driven world, understanding the trends and patterns within academic research can be the key to unlocking your next big idea. Our Smart Analytics Dashboard gives you the tools to explore the research ecosystem like never before.
+            </p>
+            <h3 class="text-2xl font-bold mb-2">Key Capabilities:</h3>
+            <div class="feature">
+                <h3>Trending Topics Tracker</h3>
+                <p>Stay ahead by discovering which subjects are gaining momentum across disciplines.</p>
+            </div>
+            <div class="feature">
+                <h3>AI Model Impact Analysis</h3>
+                <p>Visualize how machine learning models are being applied in fields ranging from bioinformatics to urban planning.</p>
+            </div>
+            <div class="feature">
+                <h3>Geographic Heatmaps of Research Activity</h3>
+                <p>See where innovation is happening globally and how institutions compare in real-time.</p>
+            </div>
+            <div class="feature">
+                <h3>Cross-Domain Collaboration Insights</h3>
+                <p>Spot opportunities where disciplines intersect and foster novel collaborations.</p>
+            </div>
+        </div>
+        
+            <!-- Placeholder for Graph/Image -->
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

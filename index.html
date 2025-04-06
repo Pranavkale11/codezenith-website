@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeZenith - AI Discovery Agent & Digest Generator</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            background: linear-gradient(-45deg, #f3f4f6, #e5e7eb, #d1d5db, #9ca3af);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+        
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        
+        
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #a5b4fc;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .btn-hover {
+            transition: all 0.3s ease;
+            transform: translateY(0);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-hover:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .pricing-card {
+            transition: all 0.3s ease;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        .pro-card {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            color: white;
+        }
+        
+        .pro-card .text-gray-500 {
+            color: rgba(255, 255, 255, 0.7) !important;
+        }
+        
+        .pro-card .text-green-500 {
+            color: #a7f3d0 !important;
+        }
+        
+        .pro-card button {
+            background: white;
+            color: #6366f1;
+        }
+        
+        .pro-card button:hover {
+            background: #f3f4f6;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Navigation -->
+    <nav class="bg-indigo-900 text-white p-4 sticky top-0 z-50 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="text-2xl font-bold">CodeZenith</div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#problem" class="nav-link hover:text-indigo-300">Problem</a>
+                <a href="#solution" class="nav-link hover:text-indigo-300">Solution</a>
+                <a href="#technology" class="nav-link hover:text-indigo-300">Technology</a>
+                <a href="#pricing" class="nav-link hover:text-indigo-300">Pricing</a>
+                <a href="#demo" class="nav-link hover:text-indigo-300">Demo</a>
+            </div class="bgm">
+            <button class="md:hidden focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative bg-gradient-to-r from-indigo-800 to-purple-900 text-white py-32 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-20"></div>
+            <div class="absolute top-0 left-0 w-full h-full opacity-10" style="background-image: url('https://grainy-gradients.vercel.app/noise.svg');"></div>
+        </div>
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 animate-fadeIn">MERN x AI</h1>
+            <h2 class="text-3xl md:text-5xl font-semibold mb-8 animate-fadeIn delay-100">AI Discovery Agent & Digest Generator</h2>
+            <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto animate-fadeIn delay-200">Cut through the noise of AI research with intelligent filtering and summarization</p>
+            <div class="flex flex-col md:flex-row justify-center gap-4 animate-fadeIn delay-300">
+                <a href="./signup.html" class="btn-hover bg-white text-indigo-900 px-8 py-4 rounded-lg font-bold hover:bg-gray-100 transition duration-300">Sign up</a>
+                <a href="./login.html" class="btn-hover bg-transparent border-2 border-white px-8 py-4 rounded-lg font-bold hover:bg-white hover:text-indigo-900 transition duration-300">Log in</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Problem Section -->
+<section id="problem" class="py-20 bg-gray-900 relative overflow-hidden">
+    <div class="absolute top-0 left-0 w-full h-full opacity-10" style="background-image: url('https://grainy-gradients.vercel.app/noise.svg');"></div>
+    <div class="container mx-auto px-4 relative">
+        <h2 class="text-4xl font-bold text-center mb-16 text-white">The Problem We Solve</h2>
+        <div class="flex flex-col md:flex-row items-center gap-12">
+            <div class="md:w-1/2">
+                <div class="rounded-xl overflow-hidden shadow-2xl transform rotate-1 hover:rotate-0 transition duration-500">
+                    <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789" alt="Research challenges" class="w-full h-auto object-cover">
+                </div>
+            </div>
+            <div class="md:w-1/2">
+                <p class="text-lg text-gray-300 mb-8 leading-relaxed">
+                    In today's research ecosystem, brilliant minds are often held back not by a lack of innovation, but by research gaps and improper use of AI.
+                </p>
+                
+                <div class="space-y-6">
+                    <div class="flex items-start">
+                        <div class="bg-indigo-600 rounded-full p-2 mr-4 mt-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 100-2 1 1 0 000 2zm7-1a1 1 0 11-2 0 1 1 0 012 0zm-7.536 5.879a1 1 0 001.415 0 3 3 0 014.242 0 1 1 0 001.415-1.415 5 5 0 00-7.072 0 1 1 0 000 1.415z" clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-white mb-2">Fragmented Information</h3>
+                            <p class="text-gray-400">Valuable research updates and papers are scattered across multiple platforms, making discovery time-consuming.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <div class="bg-indigo-600 rounded-full p-2 mr-4 mt-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-white mb-2">Lack of Awareness in AI Applications</h3>
+                            <p class="text-gray-400">Many researchers are unsure how AI can enhance or transform their current methodologies.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <div class="bg-indigo-600 rounded-full p-2 mr-4 mt-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v1h8v-1zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-1a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v1h-3zM4.75 12.094A5.973 5.973 0 004 15v1H1v-1a3 3 0 013.75-2.906z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-white mb-2">Limited Collaboration Avenues</h3>
+                            <p class="text-gray-400">There's a gap in connecting researchers across disciplines who could benefit from each other's work, especially with AI synergy.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <p class="text-lg text-indigo-300 mt-8 font-medium">
+                    AI Agent Discovery is here to fix that.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Solution Section -->
+    <section id="solution" class="py-20 bg-gray-100 relative">
+        <div class="absolute inset-0 bg-gradient-to-br from-indigo-50 to-purple-50 opacity-50"></div>
+        <div class="container mx-auto px-4 relative">
+            <h2 class="text-4xl font-bold text-center mb-16 text-gray-800">Our Solution</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <a href="./real_time.html">
+                    <div class="card-hover bg-white p-8 rounded-xl shadow-lg border border-gray-100">
+                        <div class="text-indigo-600 text-5xl mb-6">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                    
+                        <h3 class="text-2xl font-bold mb-4">Real-time AI Trend Tracker</h3>
+                        <p class="text-gray-700">Aggregates the latest research and tools from multiple trusted sources in real-time.</p>    
+                
+                    </div>
+                </a>
+                <a href="./LLM.html">
+                <div class="card-hover bg-white p-8 rounded-xl shadow-lg border border-gray-100">
+                    <div class="text-indigo-600 text-5xl mb-6">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">LLM-powered Summarization</h3>
+                    <p class="text-gray-700">Uses advanced natural language processing to extract key insights from lengthy papers and documentation.</p>
+                </div>
+                </a>
+                <a href="./visual_digest.html">
+                <div class="card-hover bg-white p-8 rounded-xl shadow-lg border border-gray-100">
+                    <div class="text-indigo-600 text-5xl mb-6">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Visual Digest & Analytics</h3>
+                    <p class="text-gray-700">Provides smart filters, trend graphs, and customizable alerts to help you spot what matters.</p>
+                </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Stack Section -->
+    <section id="technology" class="py-20 bg-white relative">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16 text-gray-800">Technical Approach</h2>
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <h3 class="text-2xl font-bold mb-6">Technology Stack</h3>
+                    <ul class="space-y-4 mb-10">
+                        <li class="flex items-center text-lg"><i class="fas fa-check-circle text-indigo-600 mr-4 text-2xl"></i> MERN Stack (MongoDB, Express, React, Node.js)</li>
+                        <li class="flex items-center text-lg"><i class="fas fa-check-circle text-indigo-600 mr-4 text-2xl"></i> Python (Scrapy/BeautifulSoup, Transformers, LangChain)</li>
+                    </ul>
+                    
+                    <h3 class="text-2xl font-bold mb-6">APIs Integrated</h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-gray-100 p-4 rounded-xl flex items-center shadow-inner">
+                            <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" class="h-8 mr-3" alt="GitHub">
+                            <span class="font-medium">GitHub API</span>
+                        </div>
+                        <div class="bg-gray-100 p-4 rounded-xl flex items-center shadow-inner">
+                            <img src="https://arxiv.org/favicon.ico"  class="h-8 mr-3" alt="ArXiv">
+                            <span class="font-medium">ArXiv API</span>
+                        </div>
+                        <div class="bg-gray-100 p-4 rounded-xl flex items-center shadow-inner">
+                            <img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" class="h-8 mr-3" alt="Hugging Face">
+                            <span class="font-medium">Hugging Face</span>
+                        </div>
+                        <div class="bg-gray-100 p-4 rounded-xl flex items-center shadow-inner">
+                            <img src="https://openai.com/favicon.ico" class="h-8 mr-3" alt="OpenAI">
+                            <span class="font-medium">OpenAI/GPT-4</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <h3 class="text-2xl font-bold mb-6">Data Flow</h3>
+                    <div class="bg-gray-50 p-8 rounded-xl border border-gray-200 shadow-sm">
+                        <div class="space-y-6">
+                            <div class="flex items-center">
+                                <div class="bg-indigo-600 text-white rounded-full h-12 w-12 flex items-center justify-center mr-6 text-lg font-bold">1</div>
+                                <div class="text-lg font-medium">GitHub / ArXiv / Hugging Face</div>
+                            </div>
+                            <div class="flex justify-center">
+                                <i class="fas fa-arrow-down text-gray-400 text-xl"></i>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="bg-indigo-600 text-white rounded-full h-12 w-12 flex items-center justify-center mr-6 text-lg font-bold">2</div>
+                                <div class="text-lg font-medium">Aggregator Agent</div>
+                            </div>
+                            <div class="flex justify-center">
+                                <i class="fas fa-arrow-down text-gray-400 text-xl"></i>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="bg-indigo-600 text-white rounded-full h-12 w-12 flex items-center justify-center mr-6 text-lg font-bold">3</div>
+                                <div class="text-lg font-medium">Classifier & Summarizer</div>
+                            </div>
+                            <div class="flex justify-center">
+                                <i class="fas fa-arrow-down text-gray-400 text-xl"></i>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="bg-indigo-600 text-white rounded-full h-12 w-12 flex items-center justify-center mr-6 text-lg font-bold">4</div>
+                                <div class="text-lg font-medium">MongoDB Storage</div>
+                            </div>
+                            <div class="flex justify-center">
+                                <i class="fas fa-arrow-down text-gray-400 text-xl"></i>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="bg-indigo-600 text-white rounded-full h-12 w-12 flex items-center justify-center mr-6 text-lg font-bold">5</div>
+                                <div class="text-lg font-medium">Digest Generator</div>
+                            </div>
+                            <div class="flex justify-center">
+                                <i class="fas fa-arrow-down text-gray-400 text-xl"></i>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="bg-indigo-600 text-white rounded-full h-12 w-12 flex items-center justify-center mr-6 text-lg font-bold">6</div>
+                                <div class="text-lg font-medium">Dashboard / Email / API</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Target Users Section -->
+    <section class="py-20 bg-indigo-50 relative">
+        <div class="absolute inset-0 bg-gradient-to-r from-indigo-100 to-purple-100 opacity-30"></div>
+        <div class="container mx-auto px-4 relative">
+            <h2 class="text-4xl font-bold text-center mb-16 text-gray-800">Who Benefits From Our Solution?</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="card-hover bg-white p-8 rounded-xl shadow-md text-center">
+                    <div class="bg-indigo-100 h-20 w-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-microscope text-indigo-600 text-3xl"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-3">AI Researchers</h3>
+                    <p class="text-gray-700">Stay updated on the latest breakthroughs in your field</p>
+                    <a href="./ai.html"></a>
+                </div>
+                <div class="card-hover bg-white p-8 rounded-xl shadow-md text-center">
+                    <div class="bg-indigo-100 h-20 w-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-code text-indigo-600 text-3xl"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-3">ML Engineers</h3>
+                    <p class="text-gray-700">Discover new tools and frameworks to implement</p>
+                </div>
+                <div class="card-hover bg-white p-8 rounded-xl shadow-md text-center">
+                    <div class="bg-indigo-100 h-20 w-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-users text-indigo-600 text-3xl"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-3">Tech Leads</h3>
+                    <p class="text-gray-700">Make informed decisions about technology adoption</p>
+                </div>
+                <div class="card-hover bg-white p-8 rounded-xl shadow-md text-center">
+                    <div class="bg-indigo-100 h-20 w-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-rocket text-indigo-600 text-3xl"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-3">Startup Founders</h3>
+                    <p class="text-gray-700">Identify emerging opportunities and competitive threats</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-20 bg-white relative">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16 text-gray-800">Simple, Transparent Pricing</h2>
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Free Tier -->
+                <a href="./free.html">
+                    <div class="pricing-card rounded-xl p-8 hover:border-indigo-300 transition duration-300">
+                        <h3 class="text-2xl font-bold mb-4 text-center">Free</h3>
+                        <div class="text-5xl font-bold text-center mb-6">$0<span class="text-lg text-gray-500">/month</span></div>
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i> Daily/Weekly digests</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i> Basic filters</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i> Limited data access</li>
+                        </ul>
+                        <button class="btn-hover w-full bg-gray-200 text-gray-800 py-3 rounded-lg font-bold hover:bg-gray-300">Get Started</button>
+                    </div>
+                </a>
+                <!-- Pro Tier -->
+                <a href="./pro.html">
+                    <div class="pro-card pricing-card rounded-xl p-8 transform hover:scale-105 transition duration-300 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 bg-white text-indigo-600 px-4 py-1 text-sm font-bold rounded-bl-lg">POPULAR</div>
+                        <h3 class="text-2xl font-bold mb-4 text-center">Pro</h3>
+                        <div class="text-5xl font-bold text-center mb-6">$29<span class="text-lg">/month</span></div>
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i> Premium filters & alerts</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i> Advanced search</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i> API (10k calls/month)</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i> Everything in Free</li>
+                        </ul>
+                        <button class="btn-hover w-full py-3 rounded-lg font-bold hover:bg-gray-100">Get Started</button>
+                    </div>
+                </a>
+                
+                <!-- Business Tier -->
+                <a href="./buisness.html">
+                    <div class="pricing-card rounded-xl p-8 hover:border-purple-300 transition duration-300">
+                        <h3 class="text-2xl font-bold mb-4 text-center">Business</h3>
+                        <div class="text-5xl font-bold text-center mb-6">$199<span class="text-lg text-gray-500">/month</span></div>
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i> Full API access</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i> Enterprise dashboards</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i> Team features & SLAs</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i> Everything in Pro</li>
+                        </ul>
+                        <button class="btn-hover w-full bg-gray-800 text-white py-3 rounded-lg font-bold hover:bg-gray-900">Contact Sales</button>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section id="demo" class="py-20 bg-gray-100 relative">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16 text-gray-800">See It In Action</h2>
+            <div class="bg-white rounded-xl shadow-2xl overflow-hidden max-w-6xl mx-auto transform hover:scale-[1.01] transition duration-300">
+                <div class="p-4 bg-gray-800 flex items-center">
+                    <div class="flex space-x-2 mr-4">
+                        <div class="h-3 w-3 rounded-full bg-red-500"></div>
+                        <div class="h-3 w-3 rounded-full bg-yellow-500"></div>
+                        <div class="h-3 w-3 rounded-full bg-green-500"></div>
+                    </div>
+                    <div class="text-white text-sm">demo.codezenith.ai</div>
+                </div>
+                <div class="p-8">
+                    <div class="flex justify-between items-center mb-8">
+                        <h3 class="text-2xl font-bold">AI Research Digest</h3>
+                        <div class="flex space-x-3">
+                            <button class="px-4 py-2 bg-gray-200 rounded-lg text-sm hover:bg-gray-300 transition">Today</button>
+                            <button class="px-4 py-2 bg-gray-200 rounded-lg text-sm hover:bg-gray-300 transition">Week</button>
+                            <button class="px-4 py-2 bg-indigo-600 text-white rounded-lg text-sm hover:bg-indigo-700 transition">Month</button>
+                        </div>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-3 gap-6 mb-10">
+                        <div class="card-hover border rounded-xl p-6 hover:shadow-md transition cursor-pointer">
+                            <div class="text-xs text-gray-500 mb-3">arXiv • 2 hours ago</div>
+                            <h4 class="font-bold text-lg mb-3">Breakthrough in Few-Shot Learning</h4>
+                            <p class="text-gray-700 mb-4">New architecture achieves 98% accuracy with just 5 examples per class, surpassing previous state-of-the-art by 12%.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Computer Vision</span>
+                                <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Few-Shot Learning</span>
+                            </div>
+                        </div>
+                        <div class="card-hover border rounded-xl p-6 hover:shadow-md transition cursor-pointer">
+                            <div class="text-xs text-gray-500 mb-3">GitHub • 5 hours ago</div>
+                            <h4 class="font-bold text-lg mb-3">EfficientViT Released</h4>
+                            <p class="text-gray-700 mb-4">New vision transformer variant achieves 3x faster inference with comparable accuracy to existing models.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full">Transformers</span>
+                                <span class="bg-yellow-100 text-yellow-800 text-xs px-3 py-1 rounded-full">Efficiency</span>
+                            </div>
+                        </div>
+                        <div class="card-hover border rounded-xl p-6 hover:shadow-md transition cursor-pointer">
+                            <div class="text-xs text-gray-500 mb-3">Hugging Face • 1 day ago</div>
+                            <h4 class="font-bold text-lg mb-3">Llama 3 Fine-Tuning Guide</h4>
+                            <p class="text-gray-700 mb-4">Comprehensive tutorial on adapting Meta's latest LLM for domain-specific tasks with minimal data.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-red-100 text-red-800 text-xs px-3 py-1 rounded-full">LLMs</span>
+                                <span class="bg-indigo-100 text-indigo-800 text-xs px-3 py-1 rounded-full">Fine-Tuning</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-indigo-50 p-6 rounded-xl">
+                        <h4 class="font-bold text-lg mb-4">Trending This Week</h4>
+                        <div class="bg-white p-4 rounded-lg">
+                            <img src="https://via.placeholder.com/800x300?text=Trend+Graph+Showing+Popular+AI+Topics" alt="Trend graph" class="w-full rounded">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap Section -->
+    <section class="py-20 bg-indigo-900 text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10" style="background-image: url('https://grainy-gradients.vercel.app/noise.svg');"></div>
+        <div class="container mx-auto px-4 relative">
+            <h2 class="text-4xl font-bold text-center mb-16">Our 3-Month Roadmap</h2>
+            <div class="max-w-5xl mx-auto">
+                <div class="relative">
+                    <!-- Timeline line -->
+                    <div class="hidden md:block absolute left-1/2 h-full w-1 bg-indigo-700 transform -translate-x-1/2"></div>
+                    
+                    <!-- MVP Item -->
+                    <div class="mb-16 md:mb-20 flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/2 md:pr-12 mb-6 md:mb-0 md:text-right">
+                            <h3 class="text-2xl font-bold mb-3">Month 1: MVP Launch</h3>
+                            <p class="text-indigo-200 leading-relaxed">Seamless integration of three high-value research sources, powered by advanced NLP-based AI summarization for rapid insight extraction.</p>
+                        </div>
+                        <div class="md:w-1/2 md:pl-12 flex justify-center">
+                            <div class="bg-indigo-600 h-12 w-12 rounded-full flex items-center justify-center relative z-10 shadow-lg">
+                                <i class="fas fa-rocket text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Beta Item -->
+                    <div class="mb-16 md:mb-20 flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/2 md:pr-12 order-2 md:order-1">
+                            <div class="md:hidden mb-6 flex justify-center">
+                                <div class="bg-indigo-600 h-12 w-12 rounded-full flex items-center justify-center relative z-10 shadow-lg">
+                                    <i class="fas fa-flask text-xl"></i>
+                                </div>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-3">Month 2: Private Beta</h3>
+                            <p class="text-indigo-200 leading-relaxed">Exclusive pilot with leading research teams to validate core capabilities, optimize UX, and fine-tune model performance.</p>
+                        </div>
+                        <div class="md:w-1/2 md:pl-12 order-1 md:order-2 hidden md:flex justify-center">
+                            <div class="bg-indigo-600 h-12 w-12 rounded-full flex items-center justify-center relative z-10 shadow-lg">
+                                <i class="fas fa-flask text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Launch Item -->
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/2 md:pr-12 mb-6 md:mb-0 md:text-right">
+                            <h3 class="text-2xl font-bold mb-3">Month 3: Public Launch</h3>
+                            <p class="text-indigo-200 leading-relaxed">Scalable release with real-time analytics, API monetization, and strategic partnerships across academia and industry for broad adoption.</p>
+                        </div>
+                        <div class="md:w-1/2 md:pl-12 flex justify-center">
+                            <div class="bg-indigo-600 h-12 w-12 rounded-full flex items-center justify-center relative z-10 shadow-lg">
+                                <i class="fas fa-globe text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Team Section -->
+<section class="py-20 bg-white relative">
+    <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold text-center mb-16 text-gray-800">The CodeZenith Team</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-8">
+            <!-- Pranav Kale -->
+            <div class="text-center">
+                <div class="bg-gray-200 h-40 w-40 rounded-full mx-auto mb-6 overflow-hidden shadow-lg">
+                    <img src="./angrybird.2.png" alt="Pranav Kale" class="h-full w-full object-cover">
+                </div>
+                <h3 class="font-bold text-xl">Pranav Kale</h3>
+                <p class="text-gray-600">24BSA10068</p>
+            </div>
+            
+            <!-- Ruchir Deshpande -->
+            <div class="text-center">
+                <div class="bg-gray-200 h-40 w-40 rounded-full mx-auto mb-6 overflow-hidden shadow-lg">
+                    <img src="./ruchir.jpg.png" alt="Ruchir Deshpande" class="h-full w-full object-cover">
+                </div>
+                <h3 class="font-bold text-xl">Ruchir Deshpande</h3>
+                <p class="text-gray-600">24BHI10028</p>
+            </div>
+            
+            <!-- Himanshu Ranjan -->
+            <div class="text-center">
+                <div class="bg-gray-200 h-40 w-40 rounded-full mx-auto mb-6 overflow-hidden shadow-lg">
+                    <img src="./himanshu.jpg.png" alt="Himanshu Ranjan" class="h-full w-full object-cover">
+                </div>
+                <h3 class="font-bold text-xl">Himanshu Ranjan</h3>
+                <p class="text-gray-600">24BCY1032</p>
+            </div>
+            
+            <!-- Ashwin C -->
+            <div class="text-center">
+                <div class="bg-gray-200 h-40 w-40 rounded-full mx-auto mb-6 overflow-hidden shadow-lg">
+                    <img src="./ashwin.jpg.png" alt="Ashwin C" class="h-full w-full object-cover">
+                </div>
+                <h3 class="font-bold text-xl">Ashwin C</h3>
+                <p class="text-gray-600">24BCY10218</p>
+            </div>
+            
+            <!-- Atharv K -->
+            <div class="text-center">
+                <div class="bg-gray-200 h-40 w-40 rounded-full mx-auto mb-6 overflow-hidden shadow-lg">
+                    <img src="./atharv.jpg.png" alt="Atharv K" class="h-full w-full object-cover">
+                </div>
+                <h3 class="font-bold text-xl">Atharv K</h3>
+                <p class="text-gray-600">24BSA10210</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-indigo-600 to-purple-700 text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-20" style="background-image: url('https://grainy-gradients.vercel.app/noise.svg');"></div>
+        <div class="container mx-auto px-4 text-center relative">
+            <h2 class="text-4xl font-bold mb-6">Ready to Stay Ahead in AI?</h2>
+            <p class="text-xl mb-10 max-w-2xl mx-auto leading-relaxed">Join our waitlist to be among the first to access the AI Discovery Agent when we launch.</p>
+            <div class="max-w-md mx-auto flex shadow-lg rounded-lg overflow-hidden">
+                <input type="email" placeholder="Enter your email" class="flex-grow px-6 py-4 focus:outline-none text-gray-900">
+                <button class="btn-hover bg-gray-900 px-8 py-4 font-bold hover:bg-black transition duration-300">Join Waitlist</button>
+            </div>
+        </div>
+    </section>
+    </body>
+      
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16 relative">
+        <div class="absolute top-0 left-0 w-full h-full opacity-10" style="background-image: url('https://grainy-gradients.vercel.app/noise.svg');"></div>
+        <div class="container mx-auto px-4 relative">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-12">
+                <div class="mb-8 md:mb-0">
+                    <div class="text-3xl font-bold mb-3">CodeZenith</div>
+                    <p class="text-gray-400">AI Discovery Agent & Digest Generator</p>
+                </div>
+                <div class="flex space-x-8">
+                    <a href="#" class="text-gray-400 hover:text-white text-2xl transition duration-300"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white text-2xl transition duration-300"><i class="fab fa-github"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white text-2xl transition duration-300"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white text-2xl transition duration-300"><i class="fab fa-discord"></i></a>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-12 text-center">
+                <p class="text-gray-400">&copy; 2023 CodeZenith. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Mobile menu toggle (if you want to implement it)
+        const mobileMenuButton = document.querySelector('.md\\:hidden');
+        const mobileMenu = document.querySelector('.hidden.md\\:flex');
+        
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                mobileMenu.classList.toggle('flex');
+            });
+        }
+    </script>
+    <script src="https://cdn.botpress.cloud/webchat/v2.2/inject.js"></script>
+    <script src="https://files.bpcontent.cloud/2025/04/06/07/20250406072931-G3DSV3H1.js">
+    </script>
+    </html>
+    

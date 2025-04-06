@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLM-Powered Research Summarization</title>
+    <style>
+        :root {
+            --primary: #6e48aa;
+            --secondary: #9d50bb;
+            --dark: #121212;
+            --darker: #0a0a0a;
+            --light: #e0e0e0;
+            --lighter: #f5f5f5;
+            --gray: #333333;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 2rem 0;
+            text-align: center;
+            border-radius: 0 0 20px 20px;
+            margin-bottom: 2rem;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin: 0;
+            background: linear-gradient(to right, var(--lighter), var(--light));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-top: 0.5rem;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .feature-card {
+            background-color: var(--gray);
+            border-radius: 10px;
+            padding: 1.5rem;
+            transition: transform 0.3s ease;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .feature-card h3 {
+            color: var(--primary);
+            margin-top: 0;
+        }
+        
+        .upload-section {
+            background-color: var(--gray);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        
+        .btn {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            margin: 0.5rem;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(110, 72, 170, 0.4);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .tech {
+            text-align: center;
+            margin: 3rem 0;
+            padding: 2rem;
+            background-color: var(--darker);
+            border-radius: 10px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+            background-color: var(--darker);
+            border-radius: 20px 20px 0 0;
+        }
+        
+        .file-upload {
+            margin: 1rem 0;
+            padding: 2rem;
+            border: 2px dashed var(--primary);
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        
+        .file-upload:hover {
+            background-color: rgba(110, 72, 170, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>LLM-Powered Research Summarization</h1>
+            <p class="tagline">Let Large Language Models do the heavy reading for you</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="upload-section">
+            <h2>Get Started</h2>
+            <p>Upload or select a research paper from our open repository</p>
+            <div class="file-upload">
+                <p>Drag & drop your research paper here or click to browse</p>
+                <input type="file" id="file-upload" style="display: none;" accept=".pdf,.doc,.docx">
+                <button class="btn" onclick="document.getElementById('file-upload').click()">Upload Paper</button>
+            </div>
+            <button class="btn btn-outline">Browse Repository</button>
+        </div>
+        
+        <h2 style="text-align: center;">How It Works</h2>
+        <div class="features">
+            <div class="feature-card">
+                <h3>Instant Summaries</h3>
+                <p>Instantly generate key takeaways, abstract rewrites, and simplified summaries tailored to your needs.</p>
+            </div>
+            
+            <div class="feature-card">
+                <h3>Detailed Insights</h3>
+                <p>Click into detailed sections like Methodology Insights, Key Findings, or Potential Improvements for deeper understanding.</p>
+            </div>
+            
+            <div class="feature-card">
+                <h3>Save & Organize</h3>
+                <p>Save or download summaries for later use and build your personal research knowledge base.</p>
+            </div>
+        </div>
+        
+        <div class="tech">
+            <h2>Built on Cutting-Edge Technology</h2>
+            <p>Our system leverages state-of-the-art Natural Language Processing (NLP) models, trained on thousands of research papers across diverse domains to deliver accurate, insightful summaries.</p>
+        </div>
+    </div>
+    
+    <footer>
+        <p>© 2023 LLM Research Summarization | Transforming Academic Research</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Gateway - Subscription</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .payment-container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+            padding: 25px;
+        }
+
+        .step-indicator {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .step-number {
+            background-color: #6c757d;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .step-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #6c757d;
+        }
+
+        .subscription-box {
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 6px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .subscription-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .free-trial-badge {
+            display: inline-block;
+            background-color: #28a745;
+            color: white;
+            font-size: 12px;
+            padding: 3px 8px;
+            border-radius: 12px;
+            margin-left: 10px;
+            font-weight: bold;
+        }
+
+        .subscription-info {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .subscription-price {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            margin-top: 10px;
+        }
+
+        .payment-heading {
+            font-size: 16px;
+            color: #6c757d;
+            margin: 20px 0 15px 0;
+        }
+
+        .payment-options {
+            list-style-type: none;
+        }
+
+        .payment-option {
+            display: flex;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .payment-option:last-child {
+            border-bottom: none;
+        }
+
+        .payment-option input[type="radio"],
+        .payment-option input[type="checkbox"] {
+            margin-right: 10px;
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        .payment-option label {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            cursor: pointer;
+        }
+
+        .payment-option-text {
+            font-size: 14px;
+            color: #333;
+        }
+
+        .payment-info {
+            font-size: 12px;
+            color: #777;
+            margin-left: 28px;
+            margin-top: 5px;
+        }
+
+        .card-option {
+            font-size: 12px;
+            color: #777;
+            padding: 2px 5px;
+            margin-left: 5px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+
+        .payment-badge {
+            background-color: #f0f0f0;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            color: #666;
+        }
+
+        .continue-btn {
+            background-color: #3b99e0;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 12px;
+            width: 100%;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .continue-btn:hover {
+            background-color: #2d8cd0;
+        }
+
+        .terms-text {
+            font-size: 12px;
+            color: #777;
+            margin-top: 15px;
+            text-align: center;
+            line-height: 1.4;
+        }
+
+        .terms-link {
+            color: #3b99e0;
+            text-decoration: none;
+        }
+
+        .terms-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="payment-container">
+        <div class="step-indicator">
+            <div class="step-number">2</div>
+            <div class="step-title">Payment</div>
+        </div>
+
+        <div class="subscription-box">
+            <div class="subscription-title">
+                Premium Subscription <span class="free-trial-badge">7 DAYS FREE</span>
+            </div>
+            <div class="subscription-info">
+                Get full access to all premium features. Your subscription begins with a 7-day free trial. 
+                No charge during trial period. Cancel anytime.
+            </div>
+            <div class="subscription-price">
+                $29/month after trial
+            </div>
+        </div>
+
+        <div class="payment-heading">How would you like to pay?</div>
+
+        <ul class="payment-options">
+            <li class="payment-option">
+                <input type="radio" id="credit-debit" name="payment-method" checked>
+                <label for="credit-debit">
+                    <div class="payment-option-text">Credit or Debit Card</div>
+                    <div style="display: flex; gap: 5px;">
+                        <span class="card-option">AMEX</span>
+                        <span class="card-option">VISA</span>
+                        <span class="card-option">MC</span>
+                        <span class="card-option">DISC</span>
+                    </div>
+                </label>
+            </li>
+
+            <li class="payment-option">
+                <input type="radio" id="paypal" name="payment-method">
+                <label for="paypal">
+                    <div class="payment-option-text">PayPal</div>
+                    <div class="payment-badge">PayPal</div>
+                </label>
+            </li>
+
+            <li class="payment-option">
+                <input type="radio" id="apple-pay" name="payment-method">
+                <label for="apple-pay">
+                    <div class="payment-option-text">Apple Pay</div>
+                    <div class="payment-badge">Apple</div>
+                </label>
+            </li>
+
+            <li class="payment-option">
+                <input type="radio" id="google-pay" name="payment-method">
+                <label for="google-pay">
+                    <div class="payment-option-text">Google Pay</div>
+                    <div class="payment-badge">Google</div>
+                </label>
+            </li>
+        </ul>
+
+        <button class="continue-btn">Start 7-Day Free Trial</button>
+
+        <div class="terms-text">
+            By continuing, you agree to our <a href="#" class="terms-link">Terms of Service</a> and 
+            <a href="#" class="terms-link">Privacy Policy</a>. Your subscription will automatically 
+            renew each month until cancelled.
+        </div>
+    </div>
+</body>
+</html>

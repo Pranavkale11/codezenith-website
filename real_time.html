@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time AI Tracker | CodeZenith</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-dark: #0f172a;
+            --primary-blue: #1e40af;
+            --accent-blue: #3b82f6;
+            --text-light: #f8fafc;
+        }
+        
+        body {
+            background-color: var(--primary-dark);
+            color: var(--text-light);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-blue) 100%);
+        }
+        
+        .card {
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(56, 182, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.4);
+            border-color: rgba(56, 182, 255, 0.4);
+        }
+        
+        .icon-circle {
+            width: 60px;
+            height: 60px;
+            background: rgba(59, 130, 246, 0.2);
+            border: 2px solid var(--accent-blue);
+        }
+        
+        .glow-text {
+            text-shadow: 0 0 10px rgba(59, 130, 246, 0.7);
+        }
+        
+        .section-divider {
+            border-color: rgba(59, 130, 246, 0.3);
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Real-Time AI Tracker Section -->
+    <section class="py-20 px-4">
+        <div class="container mx-auto max-w-6xl">
+            <!-- Header -->
+            <div class="text-center mb-16">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6 glow-text">Real-Time AI Tracker</h1>
+                <p class="text-xl md:text-2xl text-blue-200 max-w-3xl mx-auto">Track. Adapt. Advance.</p>
+            </div>
+            
+            <!-- Description -->
+            <div class="mb-20 text-center">
+                <p class="text-lg md:text-xl text-blue-100 max-w-4xl mx-auto leading-relaxed">
+                    Our Real-Time AI Tracker keeps you updated with the latest AI models, tools, and methods being used across global research papers in your field.
+                </p>
+            </div>
+            
+            <!-- What It Does -->
+            <div class="mb-20">
+                <h2 class="text-2xl md:text-3xl font-bold mb-10 text-center border-b border-blue-800 pb-4 section-divider">What It Does</h2>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Feature 1 -->
+                    <div class="card p-8 rounded-xl">
+                        <div class="icon-circle rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-bolt text-2xl text-blue-400"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 text-center text-blue-300">Live AI Trends</h3>
+                        <p class="text-blue-100 text-center">
+                            Instantly view which AI techniques (like LLMs, CNNs, transformers, etc.) are gaining traction in your research area.
+                        </p>
+                    </div>
+                    
+                    <!-- Feature 2 -->
+                    <div class="card p-8 rounded-xl">
+                        <div class="icon-circle rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-map-marked-alt text-2xl text-blue-400"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 text-center text-blue-300">Research Paper Mapping</h3>
+                        <p class="text-blue-100 text-center">
+                            See how specific AI models are being applied in real-time to solve domain-specific problems.
+                        </p>
+                    </div>
+                    
+                    <!-- Feature 3 -->
+                    <div class="card p-8 rounded-xl">
+                        <div class="icon-circle rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-bell text-2xl text-blue-400"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 text-center text-blue-300">Smart Alerts</h3>
+                        <p class="text-blue-100 text-center">
+                            Get notified when new AI tools emerge that match your research focus.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Why It Matters -->
+            <div class="gradient-bg p-8 md:p-12 rounded-xl">
+                <h2 class="text-2xl md:text-3xl font-bold mb-6 text-center">Why It Matters</h2>
+                <p class="text-lg md:text-xl text-blue-100 text-center max-w-4xl mx-auto leading-relaxed">
+                    No more FOMO (Fear of Missing Out) in research. With our tracker, you're always synced with cutting-edge AI applications relevant to your work.
+                </p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
